@@ -15,9 +15,17 @@ fun main() {
 fun kaldırSesliHarfler(metin: String?): String {
     if (metin == null) return ""
 
-    // Sesli harfleri belirlemek için regex kullanıyoruz
-    val sesliHarflerRegex = "[aeiouAEIOU]"
+
+    val sesliHarfler = listOf('a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U')
 
 
-    return metin.replace(sesliHarflerRegex, "")
+    val yeniMetin = StringBuilder()
+    for (harf in metin) {
+        if (harf !in sesliHarfler) {
+            yeniMetin.append(harf)
+        }
+    }
+
+    return yeniMetin.toString()
 }
+
